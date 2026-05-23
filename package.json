@@ -1,0 +1,16 @@
+{
+  "name": "lab-reposicion-stw",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix landing-next run dev\" \"npm --prefix main-store run dev -- --host 127.0.0.1 --port 5173\"",
+    "build": "node scripts/build-pages.mjs",
+    "lint": "npm --prefix main-store run lint && npm --prefix landing-next run lint",
+    "deploy:pages": "npm run build && gh-pages -d public-site"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "gh-pages": "^6.3.0"
+  }
+}

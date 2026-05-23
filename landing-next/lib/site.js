@@ -1,3 +1,5 @@
 export const storeUrl =
   process.env.NEXT_PUBLIC_STORE_URL ||
-  'https://your-username.github.io/LAB_REPOSICION_STW/'
+  (process.env.NODE_ENV === 'development'
+    ? 'http://127.0.0.1:5173/'
+    : '/LAB_REPOSICION_STW/store/')

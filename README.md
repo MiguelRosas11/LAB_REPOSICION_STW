@@ -1,6 +1,6 @@
 # MiniMarket Web
 
-MiniMarket Web is a university Web Technologies project built with two separate
+MiniMarket Web is a university Web Technologies project built with two connected
 applications in one repository:
 
 - `main-store`: Vite + React store application.
@@ -13,8 +13,8 @@ The project uses React, Vite, Next.js, CSS, Git, GitHub, and GitHub Pages.
 MiniMarket Web is a fictional online store. Users can explore products, filter
 the catalog, manage a shopping cart, and complete a checkout form.
 
-The landing page presents the store, its categories, and a link to the deployed
-Vite store.
+The landing page is the main entry point. It links to the Vite store, which is
+published under `/store/`. The store also links back to the landing page.
 
 ## Features
 
@@ -74,7 +74,21 @@ LAB_REPOSICION_STW/
 
 ## Run Locally
 
-### Main Store
+Run both apps together from the repository root:
+
+```bash
+npm install
+npm run dev
+```
+
+Local URLs:
+
+- Landing page: `http://127.0.0.1:3000/`
+- Store: `http://127.0.0.1:5173/`
+
+You can also run each app separately.
+
+### Main Store Only
 
 ```bash
 cd main-store
@@ -82,7 +96,7 @@ npm install
 npm run dev
 ```
 
-### Landing Page
+### Landing Page Only
 
 ```bash
 cd landing-next
@@ -92,27 +106,37 @@ npm run dev
 
 ## Build
 
-### Main Store
+### Combined GitHub Pages Build
+
+```bash
+npm run build
+```
+
+This creates one static site in `public-site/`:
+
+- Landing page at `/LAB_REPOSICION_STW/`
+- Store at `/LAB_REPOSICION_STW/store/`
+
+### Main Store Only
 
 ```bash
 cd main-store
 npm run build
 ```
 
-### Landing Page
+### Landing Page Only
 
 ```bash
 cd landing-next
 npm run build
 ```
 
-## Deploy Main Store To GitHub Pages
+## Deploy To GitHub Pages
 
-The Vite store is configured for the repository path
-`/LAB_REPOSICION_STW/`.
+The root deployment publishes one combined static site. The landing page is the
+main page, and the store is available from the landing navigation.
 
 ```bash
-cd main-store
 npm run deploy:pages
 ```
 
@@ -121,9 +145,12 @@ After running the deployment command, configure GitHub Pages to publish from the
 
 If the repository name changes, update:
 
+- `scripts/build-pages.mjs` if output paths change
 - `main-store/package.json`: `build:pages`
 - `landing-next/.env.example`
 - `landing-next/lib/site.js`
+- `landing-next/next.config.mjs`: `basePath` and `assetPrefix`
+- `main-store/src/App.jsx`: production landing URL
 
 ## Landing Store URL
 

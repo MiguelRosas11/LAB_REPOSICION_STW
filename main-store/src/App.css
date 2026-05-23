@@ -24,9 +24,19 @@
 
 .store-hero h1 {
   max-width: 720px;
-  margin: 10px 0 14px;
+  margin: 10px 0 22px;
   font-size: clamp(2.8rem, 7vw, 6.8rem);
   line-height: 0.92;
+}
+
+.store-hero__link {
+  width: fit-content;
+  background: #ffd36d;
+  color: #30240b;
+}
+
+.store-hero__link:hover {
+  background: #ffe09a;
 }
 
 .store-hero__shelf {

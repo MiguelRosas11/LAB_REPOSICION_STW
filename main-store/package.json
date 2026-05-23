@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:pages": "vite build --base=/LAB_REPOSICION_STW/",
+    "build:pages": "vite build --base=/LAB_REPOSICION_STW/store/",
     "deploy:pages": "npm run build:pages && gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"

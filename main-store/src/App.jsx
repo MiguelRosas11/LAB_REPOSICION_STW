@@ -8,6 +8,9 @@ import { PurchaseSummary } from './components/PurchaseSummary'
 import { products } from './data/products'
 
 const CART_STORAGE_KEY = 'minimarket-web-cart-v1'
+const LANDING_URL = import.meta.env.DEV
+  ? 'http://127.0.0.1:3000/'
+  : '/LAB_REPOSICION_STW/'
 const DEFAULT_FILTERS = {
   search: '',
   category: 'Todas',
@@ -128,6 +131,9 @@ function App() {
       <header className="store-hero">
         <div className="store-hero__copy">
           <h1>Tienda</h1>
+          <a className="button-link store-hero__link" href={LANDING_URL}>
+            Volver a inicio
+          </a>
         </div>
         <div className="store-hero__shelf" aria-hidden="true">
           <span>Tecnología</span>
