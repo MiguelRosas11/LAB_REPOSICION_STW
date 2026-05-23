@@ -1,174 +1,166 @@
-# MiniMarket Web
 
-MiniMarket Web is a university Web Technologies project built with two connected
-applications in one repository:
+# Reposition Laboratory – MiniMarket Web
 
-- `main-store`: Vite + React store application.
-- `landing-next`: Next.js landing page.
+This project was developed for the course **Tecnologías y Sistemas Web** and corresponds to the **Reposition Laboratory**.
 
-The project uses React, Vite, Next.js, CSS, Git, GitHub, and GitHub Pages.
+The objective of this laboratory was to build a complete web application using **React, Vite, Next.js, CSS, Git, GitHub, and GitHub Pages**.
+
+The project simulates an online store called **MiniMarket Web**, where users can browse products, manage a shopping cart, apply filters, and complete a simulated checkout process.
+
+Unlike traditional separated applications, this project integrates both the **interactive store experience** and the **informational landing sections** into a single web platform.
+
+---
 
 ## Project Description
 
-MiniMarket Web is a fictional online store. Users can explore products, filter
-the catalog, manage a shopping cart, and complete a checkout form.
+MiniMarket Web is a fictional online store developed as a modern frontend web application.
 
-The landing page is the main entry point. It links to the Vite store, which is
-published under `/store/`. The store also links back to the landing page.
+The platform combines:
 
-## Features
+- An interactive shopping experience built with **React + Vite**
+- Informational and business-oriented sections inspired by **Next.js-style landing pages**
+- Persistent shopping cart functionality
+- Product filtering and search
+- Simulated checkout system
 
-### Main Store
+The application focuses on creating a clean, responsive, and user-friendly shopping experience.
 
-- 12 products with name, category, price, image, description, stock, and optional
-  tag.
-- Search by product name.
-- Filter by category.
-- Filter by tag.
-- Sort by price.
-- Add, remove, increase, and decrease cart items.
-- Empty cart button.
-- Product subtotals and total price.
-- Checkout form with validation.
-- Purchase summary after checkout.
-- Cart persistence with `localStorage`.
+---
 
-### Landing Page
+## Main Features
 
-- Home page.
-- About page.
-- Categories page.
-- Shared navbar.
-- Footer.
-- Link to the deployed store.
-- Responsive layout with plain CSS.
+The application allows users to:
 
-## Technologies Used
+- Browse a catalog of products
+- Search products by name
+- Filter products by category
+- Filter products by product tag
+- Sort products by price
+- Add products to the shopping cart
+- Increase or decrease quantities
+- Remove products from the cart
+- Empty the cart completely
+- View product subtotals
+- View the total purchase amount
+- Complete a simulated checkout form
+- Receive a purchase summary
+- Maintain cart data after refreshing the page using localStorage
 
-- React
-- Vite
-- Next.js
-- JavaScript
-- CSS
-- Git
-- GitHub
-- GitHub Pages
+---
 
-## Project Structure
+## Product Catalog
 
-```text
-LAB_REPOSICION_STW/
-|-- main-store/
-|   |-- src/
-|   |-- public/
-|   |-- package.json
-|   `-- vite.config.js
-|-- landing-next/
-|   |-- app/
-|   |-- components/
-|   |-- lib/
-|   |-- package.json
-|   `-- next.config.mjs
-`-- README.md
-```
+The store includes a catalog with multiple products distributed across different categories.
 
-## Run Locally
+Each product contains:
 
-Run both apps together from the repository root:
+- ID
+- Name
+- Category
+- Price
+- Image
+- Description
+- Available stock
+- Optional tag:
+  - `nuevo`
+  - `oferta`
+  - `popular`
 
-```bash
-npm install
-npm run dev
-```
+Categories implemented:
 
-Local URLs:
+- Tecnología
+- Hogar
+- Ropa
+- Accesorios
+- Papelería
+- Deportes
 
-- Landing page: `http://127.0.0.1:3000/`
-- Store: `http://127.0.0.1:5173/`
+---
 
-You can also run each app separately.
+## Shopping Cart System
 
-### Main Store Only
+The shopping cart system includes:
 
-```bash
-cd main-store
-npm install
-npm run dev
-```
+- Product addition
+- Product removal
+- Quantity increase
+- Quantity decrease
+- Cart clearing
+- Product subtotal calculation
+- Total price calculation
+- Stock validation
+- Persistent storage using localStorage
 
-### Landing Page Only
+The cart remains available even after reloading the application.
 
-```bash
-cd landing-next
-npm install
-npm run dev
-```
+---
 
-## Build
+## Filters and Search System
 
-### Combined GitHub Pages Build
+The application includes multiple catalog exploration tools:
 
-```bash
-npm run build
-```
+- Search by product name
+- Category filtering
+- Tag filtering
+- Sort products:
+  - Lowest to highest price
+  - Highest to lowest price
 
-This creates one static site in `public-site/`:
+These features improve navigation and user experience inside the store.
 
-- Landing page at `/LAB_REPOSICION_STW/`
-- Store at `/LAB_REPOSICION_STW/store/`
+---
 
-### Main Store Only
+## Checkout Simulation
 
-```bash
-cd main-store
-npm run build
-```
+The checkout system simulates an online purchase process.
 
-### Landing Page Only
+Required fields:
 
-```bash
-cd landing-next
-npm run build
-```
+- Full name
+- Email address
+- Address
+- Payment method
 
-## Deploy To GitHub Pages
+Payment methods available:
 
-The root deployment publishes one combined static site. The landing page is the
-main page, and the store is available from the landing navigation.
+- Tarjeta
+- Transferencia
+- Contra entrega
 
-```bash
-npm run deploy:pages
-```
+The form validates:
 
-After running the deployment command, configure GitHub Pages to publish from the
-`gh-pages` branch.
+- Empty fields
+- Basic email formatting
+- Empty cart submissions
 
-If the repository name changes, update:
+After successful validation, the application displays a purchase summary.
 
-- `scripts/build-pages.mjs` if output paths change
-- `main-store/package.json`: `build:pages`
-- `landing-next/.env.example`
-- `landing-next/lib/site.js`
-- `landing-next/next.config.mjs`: `basePath` and `assetPrefix`
-- `main-store/src/App.jsx`: production landing URL
+---
 
-## Landing Store URL
+## Informational Sections
 
-The landing page reads the store URL from `NEXT_PUBLIC_STORE_URL`.
+The application also includes informational sections inspired by a landing page structure.
 
-Example:
+These sections explain:
 
-```bash
-NEXT_PUBLIC_STORE_URL=https://YOUR_GITHUB_USERNAME.github.io/LAB_REPOSICION_STW/ npm run build
-```
+- What MiniMarket Web is
+- What types of products are sold
+- Main functionalities of the platform
+- Store categories
+- Purpose of the project
 
-PowerShell:
+The website includes:
 
-```powershell
-$env:NEXT_PUBLIC_STORE_URL='https://YOUR_GITHUB_USERNAME.github.io/LAB_REPOSICION_STW/'
-npm run build
-```
+- Navigation bar
+- Footer
+- Informational cards
+- Responsive sections
+- Navigation links between sections
+
+---
 
 ## Author
 
-Created for the Web Technologies course.
+Miguel Rosas - 241274
+
+## Video
