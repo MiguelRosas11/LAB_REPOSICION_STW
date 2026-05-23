@@ -7,7 +7,7 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build-pages.mjs",
     "lint": "npm --prefix apps/main-store run lint && npm --prefix apps/landing-next run lint",
-    "deploy:pages": "npm run build && gh-pages -d public-site",
+    "deploy:pages": "npm run build:main-pages",
     "build:main-pages": "node scripts/build-main-pages.mjs"
   },
   "devDependencies": {

@@ -10,16 +10,14 @@ LAB_REPOSICION_STW/
 |-- apps/
 |   |-- landing-next/      # Next.js landing page source
 |   `-- main-store/        # Vite + React store source
+|-- docs/                  # generated GitHub Pages site
 |-- scripts/               # development and deployment helpers
-|-- store/                 # generated store files for GitHub Pages
-|-- _next/                 # generated landing assets for GitHub Pages
-|-- index.html             # generated landing entry for GitHub Pages
 |-- package.json           # root commands
 `-- README.md
 ```
 
-`apps/` contains source code. Root HTML folders are generated static files used
-because GitHub Pages is configured as `main` branch and `/ root`.
+`apps/` contains source code. `docs/` contains generated static files for GitHub
+Pages.
 
 ## Applications
 
@@ -62,7 +60,7 @@ Build combined site into `public-site/`:
 npm run build
 ```
 
-Build and copy static files to repository root for GitHub Pages from `main`:
+Build and copy static files to `docs/` for GitHub Pages from `main`:
 
 ```bash
 npm run build:main-pages
@@ -75,7 +73,7 @@ Use this configuration:
 ```text
 Source: Deploy from a branch
 Branch: main
-Folder: / root
+Folder: / docs
 ```
 
 Main URL:
