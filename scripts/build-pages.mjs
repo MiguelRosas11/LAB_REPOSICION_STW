@@ -53,12 +53,12 @@ const outputDir = join(root, 'public-site')
 
 rmSync(outputDir, { force: true, recursive: true })
 
-run(npmCommand, ['--prefix', 'landing-next', 'run', 'build'], {
+run(npmCommand, ['--prefix', 'apps/landing-next', 'run', 'build'], {
   env: { GITHUB_PAGES: 'true' },
 })
-run(npmCommand, ['--prefix', 'main-store', 'run', 'build:pages'])
+run(npmCommand, ['--prefix', 'apps/main-store', 'run', 'build:pages'])
 
-copyDirectory(join(root, 'landing-next', 'out'), outputDir)
-copyDirectory(join(root, 'main-store', 'dist'), join(outputDir, 'store'))
+copyDirectory(join(root, 'apps', 'landing-next', 'out'), outputDir)
+copyDirectory(join(root, 'apps', 'main-store', 'dist'), join(outputDir, 'store'))
 
 console.log('Combined GitHub Pages site ready in public-site/')

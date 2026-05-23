@@ -47,7 +47,7 @@ console.log('Store runs in background on port 5173')
 
 const landing = startProcess('landing', [
   '--prefix',
-  'landing-next',
+  'apps/landing-next',
   'run',
   'dev',
   '--',
@@ -58,7 +58,7 @@ const landing = startProcess('landing', [
 ])
 const store = startProcess('store', [
   '--prefix',
-  'main-store',
+  'apps/main-store',
   'run',
   'dev',
   '--',

@@ -1,163 +1,104 @@
+# MiniMarket Web
 
-# Reposition Laboratory – MiniMarket Web
+MiniMarket Web is a Web Technologies laboratory project. It contains two
+connected frontend applications and one GitHub Pages build.
 
-This project was developed for the course **Tecnologías y Sistemas Web** and corresponds to the **Reposition Laboratory**.
+## Project Structure
 
-The objective of this laboratory was to build a complete web application using **React, Vite, Next.js, CSS, Git, GitHub, and GitHub Pages**.
+```text
+LAB_REPOSICION_STW/
+|-- apps/
+|   |-- landing-next/      # Next.js landing page source
+|   `-- main-store/        # Vite + React store source
+|-- scripts/               # development and deployment helpers
+|-- store/                 # generated store files for GitHub Pages
+|-- _next/                 # generated landing assets for GitHub Pages
+|-- index.html             # generated landing entry for GitHub Pages
+|-- package.json           # root commands
+`-- README.md
+```
 
-The project simulates an online store called **MiniMarket Web**, where users can browse products, manage a shopping cart, apply filters, and complete a simulated checkout process.
+`apps/` contains source code. Root HTML folders are generated static files used
+because GitHub Pages is configured as `main` branch and `/ root`.
 
-Unlike traditional separated applications, this project integrates both the **interactive store experience** and the **informational landing sections** into a single web platform.
+## Applications
 
----
+### Landing Page
 
-## Project Description
+- Built with Next.js.
+- Main entry page.
+- Includes home, about, and categories routes.
+- Links to the store at `/store/`.
 
-MiniMarket Web is a fictional online store developed as a modern frontend web application.
+### Store
 
-The platform combines:
+- Built with Vite + React.
+- Includes products, filters, cart, checkout, and purchase summary.
+- Uses `localStorage` to persist cart data.
+- Links back to the landing page.
 
-- An interactive shopping experience built with **React + Vite**
-- Informational and business-oriented sections inspired by **Next.js-style landing pages**
-- Persistent shopping cart functionality
-- Product filtering and search
-- Simulated checkout system
+## Run Locally
 
-The application focuses on creating a clean, responsive, and user-friendly shopping experience.
+From repository root:
 
----
+```bash
+npm install
+npm run dev
+```
 
-## Main Features
+Open:
 
-The application allows users to:
+```text
+http://127.0.0.1:3000/
+```
 
-- Browse a catalog of products
-- Search products by name
-- Filter products by category
-- Filter products by product tag
-- Sort products by price
-- Add products to the shopping cart
-- Increase or decrease quantities
-- Remove products from the cart
-- Empty the cart completely
-- View product subtotals
-- View the total purchase amount
-- Complete a simulated checkout form
-- Receive a purchase summary
-- Maintain cart data after refreshing the page using localStorage
+The store runs in background on port `5173`.
 
----
+## Build
 
-## Product Catalog
+Build combined site into `public-site/`:
 
-The store includes a catalog with multiple products distributed across different categories.
+```bash
+npm run build
+```
 
-Each product contains:
+Build and copy static files to repository root for GitHub Pages from `main`:
 
-- ID
-- Name
-- Category
-- Price
-- Image
-- Description
-- Available stock
-- Optional tag:
-  - `nuevo`
-  - `oferta`
-  - `popular`
+```bash
+npm run build:main-pages
+```
 
-Categories implemented:
+## GitHub Pages
 
-- Tecnología
-- Hogar
-- Ropa
-- Accesorios
-- Papelería
-- Deportes
+Use this configuration:
 
----
+```text
+Source: Deploy from a branch
+Branch: main
+Folder: / root
+```
 
-## Shopping Cart System
+Main URL:
 
-The shopping cart system includes:
+```text
+https://miguelrosas11.github.io/LAB_REPOSICION_STW/
+```
 
-- Product addition
-- Product removal
-- Quantity increase
-- Quantity decrease
-- Cart clearing
-- Product subtotal calculation
-- Total price calculation
-- Stock validation
-- Persistent storage using localStorage
+Store URL:
 
-The cart remains available even after reloading the application.
+```text
+https://miguelrosas11.github.io/LAB_REPOSICION_STW/store/
+```
 
----
+## Technologies
 
-## Filters and Search System
-
-The application includes multiple catalog exploration tools:
-
-- Search by product name
-- Category filtering
-- Tag filtering
-- Sort products:
-  - Lowest to highest price
-  - Highest to lowest price
-
-These features improve navigation and user experience inside the store.
-
----
-
-## Checkout Simulation
-
-The checkout system simulates an online purchase process.
-
-Required fields:
-
-- Full name
-- Email address
-- Address
-- Payment method
-
-Payment methods available:
-
-- Tarjeta
-- Transferencia
-- Contra entrega
-
-The form validates:
-
-- Empty fields
-- Basic email formatting
-- Empty cart submissions
-
-After successful validation, the application displays a purchase summary.
-
----
-
-## Informational Sections
-
-The application also includes informational sections inspired by a landing page structure.
-
-These sections explain:
-
-- What MiniMarket Web is
-- What types of products are sold
-- Main functionalities of the platform
-- Store categories
-- Purpose of the project
-
-The website includes:
-
-- Navigation bar
-- Footer
-- Informational cards
-- Responsive sections
-- Navigation links between sections
-
----
+- React
+- Vite
+- Next.js
+- CSS
+- Git
+- GitHub
+- GitHub Pages
 
 ## Author
 
